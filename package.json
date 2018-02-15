@@ -1,0 +1,23 @@
+{
+  "name": "RWTestCerebral01",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel index.html -p 3035"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "inferno": "^4.0.3",
+    "inferno-component": "^4.0.3"
+  },
+  "devDependencies": {
+    "babel-plugin-inferno": "^4.0.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.6.1",
+    "parcel-bundler": "^1.6.0"
+  }
+}
