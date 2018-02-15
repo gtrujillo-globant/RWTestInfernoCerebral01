@@ -11,13 +11,16 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@cerebral/inferno": "^3.1.1",
+    "cerebral": "^4.1.1",
     "inferno": "^4.0.3",
-    "inferno-component": "^4.0.3"
+    "inferno-component": "^4.0.3",
+    "inferno-create-element": "^3.10.1"
   },
   "devDependencies": {
     "babel-plugin-inferno": "^4.0.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-env": "^1.6.1",
-    "parcel-bundler": "^1.6.0"
+    "parcel-bundler": "^1.6.1"
   }
 }
