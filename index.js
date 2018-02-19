@@ -3,6 +3,7 @@ import { Module, Controller } from 'cerebral';
 import { Container, connect } from '@cerebral/inferno';
 import { set } from 'cerebral/operators';
 import {state, signal, string} from 'cerebral/tags';
+import Devtools from 'cerebral/devtools'
 
 const decrease = ({state}) => {
     state.set('count', state.get('count') - 1);
@@ -22,14 +23,13 @@ const rootModule = Module({
     } 
 });
 
-const controller = Controller(rootModule, {});
+const controller = Controller(rootModule, {
+  devtools: process.env.NODE_ENV === 'production' ? null : Devtools({
+    host: 'localhost:8085'
+  })
+});
 
-const Main = connect({
-  count: state`count`,
-  onIncrease: signal`onIncrease`,
-  onDecrease: signal`onDecrease`
-},
-function App ({ onIncrease, onDecrease, count }) {
+const App = ({ onIncrease, onDecrease, count }) => {
   return (
    <div>
     <button onClick={() => onIncrease()}>+</button>
@@ -37,7 +37,14 @@ function App ({ onIncrease, onDecrease, count }) {
     <button onClick={() => onDecrease()}>-</button>
   </div>
   )
-});
+};
+
+const Main = connect({
+  count: state`count`,
+  onIncrease: signal`onIncrease`,
+  onDecrease: signal`onDecrease`
+},
+App);
 
 render(
     <Container controller={ controller }>
